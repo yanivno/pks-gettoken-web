@@ -19,12 +19,21 @@ app.get('/', function (req, res) {
 app.post('/', function (req, res) {
   let username = req.body.username;
   let password = encodeURIComponent(req.body.password);
-  console.log(password);
+  //console.log(password);
   let params = `client_id=pks_cluster_client&client_secret=&grant_type=password&username=${username}&password=${password}&response_type=id_token`
   let url = opsman + "?" + params;
   console.log(url);
-  throw('d');
-  request(url, function (err, response, body) {
+
+  var options = {
+    method : "POST",
+    url: url,
+    headers: {
+        "Accept":"application/json",
+        "Content-Type" : "x-www-form-urlencoded"
+      }
+  };
+
+  request(options, function (err, response, body) {
     if(err){
       res.render('index', {weather: null, error: 'Error, please try again'});
     } else {
@@ -40,5 +49,5 @@ app.post('/', function (req, res) {
 })
 
 app.listen(3000, function () {
-  console.log('Example app listening on port 3000!')
+  console.log('app listening on port 3000!')
 })

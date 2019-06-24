@@ -10,7 +10,8 @@
     <div class="container">
       <fieldset>
         <form action="/" method="post">
-          <input name="city" type="text" class="ghost-input" placeholder="Enter a City" required>
+          <input name="username" type="text" class="ghost-input" placeholder="Your Active Directory username" required>
+          <input name="password" type="password" class="ghost-input" placeholder="Your Password" required>
           <input type="submit" class="ghost-button" value="Get Weather">
         </form>
         <% if(weather !== null){ %>

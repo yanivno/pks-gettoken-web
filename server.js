@@ -33,6 +33,8 @@ app.post('/', function (req, res) {
       }
   };
 
+  
+
   request(options, function (err, response, body) {
     if(err){
       res.render('index', {weather: null, error: 'Error, please try again'});
